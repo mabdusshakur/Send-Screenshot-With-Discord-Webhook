@@ -33,7 +33,7 @@ namespace SendScreenshotWithDiscordWebhook
 
             var file = File.ReadAllBytes(filePath);
             multipartFormDataContent.Add(new ByteArrayContent(file, 0, file.Length), Path.GetExtension(filePath), filePath);
-            client.PostAsync("https://discord.com/api/webhooks/1176074138964742174/mG7sJlHUz9R2rI7LqLgIXkvCUFb0GNZWpro6vdADfzGJW7ELgW3JVWxTdszna-aIrGF2", multipartFormDataContent).Wait();
+            client.PostAsync("webhook-url", multipartFormDataContent).Wait();
             client.Dispose();
         }
     }
